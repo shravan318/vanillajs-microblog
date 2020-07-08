@@ -1,9 +1,9 @@
-# Babel Webpack Starter
+# Micro Blogger
 
-A starter pack to build JavaScript applications using standards from ES2015, ES2016 & ES2017. It uses webpack, Babel and webpack-dev-server to compile and serve. It is fully compatible with Async/Await as it uses the Babel polyfill.
+A micro-blogger site using only vanilla js and json-server
 
 ### Version
-1.1.0
+1.0.0
 
 ## Usage
 
@@ -33,8 +33,7 @@ $ npm run build
 
 ### Author
 
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
+Shravan
 
 ### License
 
