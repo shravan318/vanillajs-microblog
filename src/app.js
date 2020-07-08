@@ -1,10 +1,7 @@
-const greeting = 'Hello World';
-console.log(greeting);
+import { http } from "./httplib";
 
-const getData = async (url) => {
-  const response = await fetch(url);
-  const result = await response.json();
-  console.log(result);
-};
+document.addEventListener("DOMContentLoaded", getPosts);
 
-getData('https://jsonplaceholder.typicode.com/posts');
+function getPosts() {
+  http.get("http://localhost:3000/posts").then(data=>console.log(data)).catch(err=>console.log(err))
+}
