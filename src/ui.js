@@ -65,6 +65,38 @@ class UI {
     this.idInput.value = data.id
     this.titleInput.value = data.title
     this.bodyInput.value= data.body
+    this.changeFormState("edit")
 }
+changeFormState(type){
+  if(type === "edit"){
+    this.postSubmit.textContent = "Update Post"
+    this.postSubmit.className = "post-submit btn btn-warning btn-block"
+
+    const cancelBtn = document.createElement("button")
+    cancelBtn.className = "post-cancel btn btn-light btn-block"
+    cancelBtn.appendChild(document.createTextNode("Cancel Edit"))
+
+    const cardForm = document.querySelector(".card-form")
+    
+    const formEnd = document.querySelector(".form-end")
+
+    cardForm.insertBefore(cancelBtn, formEnd)
+
+
+  }else{
+    this.postSubmit.textContent = "Post It"
+    this.postSubmit.className = "post-submit btn btn-primary btn-block"
+
+    if( document.querySelector(".post-cancel")){
+      document.querySelector(".post-cancel").remove()
+    }
+    this.clearId()
+    this.clearFields()
+  }
+}
+clearId(){
+  this.idInput.value=""
+}
+
 }
 export const ui = new UI();
