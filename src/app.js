@@ -6,9 +6,17 @@ document.addEventListener("DOMContentLoaded", getPosts);
 
 //listen to add post 
 document.querySelector(".post-submit").addEventListener("click", submitPost)
-
+// delete post
 document.querySelector("#posts").addEventListener("click", deletePost)
 
+
+//edit post
+document.querySelector("#posts").addEventListener("click", enableEdit)
+
+
+
+
+//get post
 function getPosts() {
   http
     .get("http://localhost:3000/posts")
@@ -54,5 +62,23 @@ function deletePost (e) {
       })
       .catch(err => console.log(err))
     }
+  }
+}
+
+// edit
+
+function enableEdit (e) {
+  e.preventDefault();
+  if(e.target.parentElement.classList.contains("edit")){
+    const id = e.target.parentElement.dataset.id;
+    const title = e.target.parentElement.previousElementSibling.previousElementSibling.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim()
+    const body = e.target.parentElement.previousElementSibling.textContent
+    const data ={
+      id,
+      title,
+      body
+    }
+    console.log(title)
+    ui.fillForm(data)
   }
 }
